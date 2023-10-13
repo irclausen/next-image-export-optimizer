@@ -1,10 +1,10 @@
 import { ImageObject } from "./ImageObject";
 const fs = require("fs");
-const https = require("https");
+const http = require("http");
 
 async function downloadImage(url: string, filename: string, folder: string) {
   return new Promise<void>((resolve, reject) => {
-    https.get(url, function (response: any) {
+    http.get(url, function (response: any) {
       if (response.statusCode !== 200) {
         console.error(
           `Error: Unable to download ${url} (status code: ${response.statusCode}).`
